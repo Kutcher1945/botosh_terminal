@@ -1,0 +1,284 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/*-- Main Page styles --*/
+/* body {
+  background-image: url('https://krot.info/uploads/posts/2022-06/1654701856_20-krot-info-p-otkritki-vzaimoponimaniya-krasivie-21.jpg');
+  background-size: cover;
+} */
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background-image: url('./logo.png'); */
+  background-size: cover;
+  background-position: center center;
+}
+
+.MainPage .button {
+  padding: 3rem 4rem;
+  font-size: 4rem;
+  border: 10px solid #838383; /* add border to create stroke effect */
+  background-color: #2196f3;
+}
+
+.MainPage .h1 {
+  font-size: 8.5rem;
+  text-align: center;
+}
+
+.MainPage .button:hover {
+  background-color: #69bcff;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 4rem 8rem;
+  font-size: 4rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.logo {
+  width: 20rem;
+  height: 20rem;
+  margin-bottom: 2rem;
+}
+.paymentMethodPage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #000000;
+}
+
+.paymentMethodButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.button:hover {
+  background-color: #000000;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
+  z-index: 9999;
+}
+
+.popup__header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.popup__close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.popup__content {
+  height: calc(100% - 50px);
+  overflow: auto;
+}
+.popup-button {
+  padding: 0.5rem 7rem;
+  font-size: 4rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.MainPage .close-button {
+  padding: 0.5rem 7rem;
+  font-size: 3rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+
+.info-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: auto;
+  max-height: 90%;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  z-index: 9999;
+}
+
+.info-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.info-container p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.info-container button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  display: none; /* hide the overlay by default */
+}
+
+.overlay.active {
+  display: block; /* show the overlay when isInfoActive is true */
+}
+.MainPage .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #2196f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ /* border: 10px solid #7db3ff; /* add border to create stroke effect */
+}
+
+/*-- Payment Methods Styles--*/
+.PaymentMethodPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.PaymentMethodPage .title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.paymentMethodButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PaymentMethodPage .button {
+  padding: 1rem 4rem;
+  font-size: 7.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.button:hover {
+  background-color: #0d8bf2;
+}
+
+.PaymentMethodPage .back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #2196f3;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #000000;
+}
+
