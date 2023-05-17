@@ -5,7 +5,7 @@ import MainPage from './MainPage';
 import PaymentMethodPage from './PaymentMethodPage';
 import ZoomDisable from './ZoomDisable';
 import TouchZoomBlocker from './TouchZoomBlocker'; // Import the TouchZoomBlocker component
-// import USBComponent from './USBComponent'; // Import the USBComponent
+import USBComponent from './USBComponent'; // Import the USBComponent
 
 import './App.css';
 
@@ -15,7 +15,7 @@ export default function App() {
       <div className="App">
         <TouchZoomBlocker /> {/* Include the TouchZoomBlocker component */}
         <ZoomDisable />
-        {/* <USBComponent /> Include the USBComponent */}
+        <USBComponent /> {/* Include the USBComponent */}
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/payment-method" element={<PaymentMethodPage />} />
