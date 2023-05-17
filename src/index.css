@@ -5,18 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: manipulation;
+  zoom: reset !important;
 }
 
-@viewport {
+/* @viewport {
   zoom: 1.0 !important;
   user-zoom: fixed !important;
-}
+} */
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 /*-- Main Page styles --*/
 /* body {
   background-image: url('https://krot.info/uploads/posts/2022-06/1654701856_20-krot-info-p-otkritki-vzaimoponimaniya-krasivie-21.jpg');
