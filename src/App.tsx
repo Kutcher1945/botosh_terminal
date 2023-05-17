@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import './disable-zoom.css'; // Import the CSS file
 import MainPage from './MainPage';
 import PaymentMethodPage from './PaymentMethodPage';
@@ -14,9 +14,9 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <Helmet>
+        {/* <Helmet>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        </Helmet>
+        </Helmet> */}
         <ZoomDisable />
         <Routes>
           <Route path="/" element={<MainPage />} />
