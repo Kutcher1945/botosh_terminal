@@ -1,10 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import './disable-zoom.css'; // Import the CSS file
 import MainPage from './MainPage';
 import PaymentMethodPage from './PaymentMethodPage';
 import ZoomDisable from './ZoomDisable';
-import { Helmet } from 'react-helmet';
+
 import './App.css';
+
+
 
 export default function App() {
   return (

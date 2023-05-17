@@ -1,0 +1,16 @@
+/* Disable pinch-to-zoom and touch gestures */
+html,
+body {
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+/* Disable double-tap-to-zoom on iOS */
+@media (max-width: 1024px) {
+  /* Adjust the max-width value based on your specific requirements */
+  /* This media query targets devices with a maximum width of 1024px, such as tablets */
+  /* You can customize it as needed */
+  html {
+    touch-action: pan-x pan-y;
+  }
+}
