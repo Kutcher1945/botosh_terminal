@@ -1,22 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { Helmet } from 'react-helmet';
 import './disable-zoom.css'; // Import the CSS file
 import MainPage from './MainPage';
 import PaymentMethodPage from './PaymentMethodPage';
 import ZoomDisable from './ZoomDisable';
+import TouchZoomBlocker from './TouchZoomBlocker'; // Import the TouchZoomBlocker component
 
 import './App.css';
-
-
 
 export default function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Helmet>
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        </Helmet> */}
+        <TouchZoomBlocker /> {/* Include the TouchZoomBlocker component */}
         <ZoomDisable />
         <Routes>
           <Route path="/" element={<MainPage />} />
