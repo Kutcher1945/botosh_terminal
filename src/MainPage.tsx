@@ -38,12 +38,15 @@ function MainPage() {
         <div className="info-container">
           <h2>Информация о проекте ОБФ «БОТАШЫМ»</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            ullamcorper vestibulum mauris, sit amet rhoncus arcu. Quisque eget
-            quam sed risus ullamcorper bibendum.
+            Благотворительный фонд "ОБФ Боташым" - Ваша помощь в добрых руках!
+            Мы, Благотворительный фонд "ОБФ Боташым", 
+            являемся некоммерческой организацией, 
+            посвященной поддержке и помощи нуждающимся людям.
+            Наша миссия - создать лучшие условия для развития 
+            общества и обеспечить возможности для достойной жизни для всех.
           </p>
           <button className="close-button" onClick={handleCloseClick}>
-            Close
+            Закрыть
           </button>
         </div>
       </div>
