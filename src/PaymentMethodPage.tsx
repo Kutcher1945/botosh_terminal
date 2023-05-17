@@ -45,6 +45,7 @@ function PaymentMethodPage() {
       </div>
       <div className="paymentMethodButtons">
         <button className="button" onClick={handleKaspiClick}>Kaspi QR</button>
+        <button className="button" onClick={handleHalykClick}>Наличные</button>
         <button className="button" onClick={handleHalykClick}>Halyk QR</button>
       </div>
       <div className={`overlay ${isKaspiActive ? 'active' : ''}`}>
