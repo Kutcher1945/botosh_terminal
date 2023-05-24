@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import KaspiImage from './Kaspi.png';
 import HalykImage from './Halyk.png';
@@ -8,46 +8,82 @@ function PaymentMethodPage() {
   const [isKaspiActive, setIsKaspiActive] = useState(false);
   const [isHalykActive, setIsHalykActive] = useState(false);
   const [isCashActive, setIsCashActive] = useState(false);
+  const pageTimerRef = useRef<number | null>(null);
+  const popUpTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    startPageTimer();
+    return () => {
+      clearTimeout(pageTimerRef.current as number);
+      clearTimeout(popUpTimerRef.current as number);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isKaspiActive && !isHalykActive && !isCashActive) {
+      startPageTimer();
+    } else {
+      resetPageTimer();
+    }
+  }, [isKaspiActive, isHalykActive, isCashActive]);
+
+  function startPageTimer() {
+    clearTimeout(pageTimerRef.current as number);
+    pageTimerRef.current = setTimeout(() => {
+      navigate('/');
+    }, 10000) as unknown as number;
+  }
+
+  function resetPageTimer() {
+    clearTimeout(pageTimerRef.current as number);
+  }
+
+  function startPopUpTimer() {
+    clearTimeout(popUpTimerRef.current as number);
+    popUpTimerRef.current = setTimeout(() => {
+      navigate('/');
+    }, 10000) as unknown as number;
+  }
+
+  function resetPopUpTimer() {
+    clearTimeout(popUpTimerRef.current as number);
+  }
 
   function handleKaspiClick() {
     setIsKaspiActive(true);
-    setTimeout(() => {
-      navigate('/');
-    }, 20000);
+    resetPageTimer();
+    startPopUpTimer();
   }
 
   function handleHalykClick() {
     setIsHalykActive(true);
-    setTimeout(() => {
-      navigate('/');
-    }, 20000);
+    resetPageTimer();
+    startPopUpTimer();
   }
-  
+
   function handleCashClick() {
     setIsCashActive(true);
-    setTimeout(() => {
-      navigate('/');
-    }, 20000);
+    resetPageTimer();
+    startPopUpTimer();
   }
 
   function handleKaspiClose() {
     setIsKaspiActive(false);
+    resetPopUpTimer();
+    startPageTimer();
   }
 
   function handleHalykClose() {
     setIsHalykActive(false);
+    resetPopUpTimer();
+    startPageTimer();
   }
 
   function handleCashClose() {
     setIsCashActive(false);
+    resetPopUpTimer();
+    startPageTimer();
   }
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      navigate('/');
-    }, 10000);
-    return () => clearTimeout(timeoutId);
-  }, [navigate]);
 
   return (
     <div className="PaymentMethodPage">
@@ -62,17 +98,8 @@ function PaymentMethodPage() {
       </div>
       <div className={`overlay ${isKaspiActive ? 'active' : ''}`}>
         <div className="info-container">
-          <h2>Благотворительные пожертвования</h2>
           <h3>ОБФ «БОТАШЫМ»</h3>
           <img src={KaspiImage} alt="Kaspi Payment Method" />
-          <p>
-            Благотворительный фонд "ОБФ Боташым" - Ваша помощь в добрых руках!
-            Мы, Благотворительный фонд "ОБФ Боташым", 
-            являемся некоммерческой организацией, 
-            посвященной поддержке и помощи нуждающимся людям.
-            Наша миссия - создать лучшие условия для развития 
-            общества и обеспечить возможности для достойной жизни для всех.
-          </p>
           <button className="close-button" onClick={handleKaspiClose}>
             Закрыть
           </button>
@@ -80,17 +107,8 @@ function PaymentMethodPage() {
       </div>
       <div className={`overlay ${isCashActive ? 'active' : ''}`}>
         <div className="info-container">
-          <h2>Благотворительные пожертвования</h2>
           <h3>ОБФ «БОТАШЫМ»</h3>
           <img alt="Cash Payment Method" />
-          <p>
-          Благотворительный фонд "ОБФ Боташым" - Ваша помощь в добрых руках!
-            Мы, Благотворительный фонд "ОБФ Боташым", 
-            являемся некоммерческой организацией, 
-            посвященной поддержке и помощи нуждающимся людям.
-            Наша миссия - создать лучшие условия для развития 
-            общества и обеспечить возможности для достойной жизни для всех.
-          </p>
           <button className="close-button" onClick={handleCashClose}>
             Закрыть
           </button>
@@ -98,17 +116,8 @@ function PaymentMethodPage() {
       </div>
       <div className={`overlay ${isHalykActive ? 'active' : ''}`}>
         <div className="info-container">
-          <h2>Благотворительные пожертвования</h2>
           <h3>ОБФ «БОТАШЫМ»</h3>
           <img src={HalykImage} alt="Halyk Bank Payment Method" />
-          <p>
-          Благотворительный фонд "ОБФ Боташым" - Ваша помощь в добрых руках!
-            Мы, Благотворительный фонд "ОБФ Боташым", 
-            являемся некоммерческой организацией, 
-            посвященной поддержке и помощи нуждающимся людям.
-            Наша миссия - создать лучшие условия для развития 
-            общества и обеспечить возможности для достойной жизни для всех.
-          </p>
           <button className="close-button" onClick={handleHalykClose}>
             Закрыть
           </button>
