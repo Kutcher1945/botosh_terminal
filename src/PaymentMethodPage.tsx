@@ -72,6 +72,7 @@ function PaymentMethodPage() {
     resetPopUpTimer();
     startPageTimer();
   }
+  
 
   function handleHalykClose() {
     setIsHalykActive(false);
